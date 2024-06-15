@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 const sequelize = require("./config/sequalize");
 
@@ -10,6 +11,7 @@ const bookingRoutes = require("./routes/booking");
 
 const app = express();
 
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
